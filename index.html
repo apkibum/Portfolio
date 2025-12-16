@@ -1,137 +1,470 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tumblr-era Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=VT323&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-      <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="#">
-          <span class="glitch-logo me-2 text-accent">apkibum</span>
-          <small class="text-muted">portfolio</small>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navMenu">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="#glitch">Glitch Art</a></li>
-            <li class="nav-item"><a class="nav-link" href="#logo">Logo</a></li>
-            <li class="nav-item"><a class="nav-link" href="#meme">Meme</a></li>
-            <li class="nav-item"><a class="nav-link" href="#3d">3D Work</a></li>
-            <li class="nav-item"><a class="nav-link" href="#netart">Net-art</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <header class="hero text-center text-white py-5">
-      <div class="container">
-        <h1 class="display-4 glitch-title text-accent">hello</h1>
-        <p class="lead muted">hi im apkibuuuummmt.</p>
-        <a href="#glitch" class="btn btn-outline-light mt-3">Explore Glitch</a>
-      </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>★ apkibum's Art Portfolio ★</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Comic Sans MS', 'Comic Sans', cursive !important;
+            background: linear-gradient(135deg, #fffacd 0%, #ffeaa7 25%, #fdcb6e 50%, #ffeaa7 75%, #fffacd 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .rainbow-text {
+            background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbow 3s linear infinite;
+            background-size: 200% 100%;
+            font-weight: bold;
+        }
+        
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        
+        header {
+            text-align: center;
+            padding: 2rem 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            text-shadow: 3px 3px 6px rgba(255, 255, 255, 0.8);
+        }
+        
+        main ul.navigation {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            margin: 2vh auto;
+            padding: 1rem;
+            flex-wrap: wrap;
+            list-style-type: none;
+            justify-content: center;
+        }
+        
+        main ul.navigation li {
+            position: relative;
+            overflow: hidden;
+            width: calc(33.333% - 1rem);
+            min-width: 250px;
+            margin: 0.5rem;
+            aspect-ratio: 2 / 1;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #fff;
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 250, 205, 0.8));
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        main ul.navigation li:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        }
+        
+        main ul.navigation li:before {
+            content: "";
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.03) 50%, rgba(0, 0, 0, 0.03));
+            background-size: 100% 8px;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            z-index: 0;
+        }
+        
+        .navigation li a {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .navigation li a span {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .content {
+            position: fixed;
+            width: 100vw;
+            display: flex;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .content:target {
+            visibility: visible;
+            pointer-events: auto;
+            opacity: 1;
+        }
+        
+        .content .container-box {
+            width: 90vw;
+            max-width: 1000px;
+            background: linear-gradient(135deg, #fffacd 0%, #ffeaa7 50%, #fdcb6e 100%);
+            border-radius: 2rem;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+            padding: 2rem;
+            max-height: 85vh;
+            overflow-y: auto;
+            border: 4px solid #fff;
+        }
+        
+        .content header {
+            background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .content header h2 {
+            margin: 0;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .art-content {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .art-content p {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+        
+        .art-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 1rem;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin: 1rem 0;
+        }
+        
+        .art-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            margin: 0.5rem;
+            text-align: center;
+            border-radius: 2rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-decoration: none;
+            color: #222;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 3px solid #fff;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 250, 205, 0.8));
+            transition: transform 0.2s ease;
+            font-family: 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+        
+        .button:hover {
+            transform: scale(1.05);
+            color: #222;
+        }
+        
+        .button:before {
+            content: "";
+            width: 100%;
+            height: 50%;
+            left: 0;
+            top: 0;
+            border-radius: 2rem 2rem 0 0;
+            background: rgba(255, 255, 255, 0.4);
+            position: absolute;
+            z-index: -1;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 1rem 3rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-text {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            main ul.navigation li {
+                width: calc(50% - 1rem);
+                min-width: 150px;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="rainbow-text">★ apkibum's Art Portfolio ★</h1>
+        <p class="rainbow-text" style="font-size: 1.3rem;">~ Welcome to my hubular! ~</p>
     </header>
-
-    <main class="container my-5">
-      <section id="glitch" class="mb-5">
-        <h2 class="section-title text-accent">Glitch Art</h2>
-        <p class="section-desc">Digital corruption experiments, datamosh and pixel play.</p>
-        <div class="row g-3">
-          <div class="col-12 col-md-6">
-            <div class="card shadow-sm">
-              <img src="images/kindtoo.png" class="card-img-top" alt="Kindtoo">
-              <div class="card-body">
-                <h5 class="card-title">Datamosh Study</h5>
-                <p class="card-text">Layered RGB splits and scanline textures.</p>
-              </div>
+    
+    <main>
+        <ul class="navigation">
+            <li>
+                <a href="#about">
+                    <span class="rainbow-text">♡ About Apkibum</span>
+                </a>
+            </li>
+            <li>
+                <a href="#art-3d">
+                    <span class="rainbow-text">╰(*°▽°*)╯ 3D Art</span>
+                </a>
+            </li>
+            <li>
+                <a href="#art-net">
+                    <span class="rainbow-text">(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ Net-Art</span>
+                </a>
+            </li>
+            <li>
+                <a href="#art-glitch">
+                    <span class="rainbow-text">☆ﾐ(o*･ω･)ﾉ Glitch Art</span>
+                </a>
+            </li>
+            <li>
+                <a href="#art-meme">
+                    <span class="rainbow-text">(≧▽≦) Meme Art</span>
+                </a>
+            </li>
+            <li>
+                <a href="#art-logos">
+                    <span class="rainbow-text">(｡･ω･)ﾉﾞ Logos</span>
+                </a>
+            </li>
+            <li>
+                <a href="#art-code">
+                    <span class="rainbow-text">ヽ(•‿•)ノ Art in Code</span>
+                </a>
+            </li>
+            <li>
+                <a href="#art-final">
+                    <span class="rainbow-text">☆*:.｡.o(≧▽≦)o.｡.:*☆ Final Piece</span>
+                </a>
+            </li>
+        </ul>
+        
+        <!-- About Apkibum Section -->
+        <div id="about" class="content">
+            <div class="container-box">
+                <header>
+                    <h2>♡ About Apkibum</h2>
+                </header>
+                <div class="art-content">
+                    <h1 class="rainbow-text" style="font-size: 3rem; margin: 2rem 0;">HI IM APKIBUM!</h1>
+                    <p style="font-size: 1.3rem; line-height: 1.8; max-width: 800px; margin: 0 auto;">
+                        Hello! Im Stanyul Kit! Im an Art Studio Practice Preperation for Teaching Major double minoring in Deaf Education and Chicano/Chicana Studies at San Jose State University! I love to paint and draw! This is all art I made for my art 74 class!
+                    </p>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="#" class="button">← Back to Menu</a>
+                </div>
             </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="card shadow-sm">
-              <img src="images/loyaltoo.png" class="card-img-top" alt="Loyaltoo">
-              <div class="card-body">
-                <h5 class="card-title">Noise Collage</h5>
-                <p class="card-text">Analog noise converted to color fields.</p>
-              </div>
+        </div>
+        
+        <!-- 3D Art Section -->
+        <div id="art-3d" class="content">
+            <div class="container-box">
+                <header>
+                    <h2>╰(*°▽°*)╯ 3D Art Gallery</h2>
+                </header>
+                <div class="art-content">
+                    <p>Welcome to my 3D art collection!</p>
+                    <div class="art-grid">
+                        <img src="images/Untitled-1.png" alt="3D Art Piece" />
+                    </div>
+                    <p><em>Low-poly renders and experimental scenes</em></p>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="#" class="button">← Back to Menu</a>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
-
-      <section id="logo" class="mb-5">
-        <h2 class="section-title text-accent">Logo</h2>
-        <p class="section-desc">Branding experiments with retro type and pixel aesthetics.</p>
-        <div class="row g-3">
-          <div class="col-12 col-md-4">
-            <img src="images/logo%20.png" class="img-fluid border rounded" alt="Logo PNG">
-          </div>
-        </div>
-      </section>
-
-      <section id="meme" class="mb-5">
-        <h2 class="section-title text-accent">Meme</h2>
-        <p class="section-desc">Playful, ephemeral pieces with bold captions.</p>
-        <div class="row g-3">
-          <div class="col-12 col-md-6">
-            <div class="card meme-card">
-              <img src="images/DUI%20PUFFLE.png" class="card-img-top" alt="DUI Puffle">
-              <div class="card-body">
-                <h5 class="card-title">Distracted Dev</h5>
-              </div>
+        
+        <!-- Net-Art Section -->
+        <div id="art-net" class="content">
+            <div class="container-box">
+                <header>
+                    <h2>(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ Net-Art Collection</h2>
+                </header>
+                <div class="art-content">
+                    <p>Explore my internet art and web-based installations!</p>
+                    <div class="art-grid">
+                        <img src="images/cleandaughter.png" alt="Net Art" />
+                    </div>
+                    <p><em>Browser pieces, micro-sites and playful interaction concepts</em></p>
+                    <a href="https://apkibum.github.io/my1styaoiblog/" target="_blank" rel="noopener" class="button">(づ｡◕‿‿◕｡)づ Visit Live Project</a>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="#" class="button">← Back to Menu</a>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
-
-      <section id="3d" class="mb-5">
-        <h2 class="section-title text-accent">3D Work</h2>
-        <p class="section-desc">Low-poly renders and experimental scenes.</p>
-        <div class="row g-3">
-          <div class="col-12 col-md-6">
-            <img src="images/Untitled-1.png" class="img-fluid rounded" alt="Untitled 1">
-          </div>
-        </div>
-      </section>
-
-      <section id="netart" class="mb-5">
-        <h2 class="section-title text-accent">Net-art</h2>
-        <p class="section-desc">Browser pieces, micro-sites and playful interaction concepts.</p>
-        <div class="row g-3">
-          <div class="col-12 col-md-6">
-            <div class="card">
-              <img src="images/cleandaughter.png" class="card-img-top" alt="Clean Daughter">
-              <div class="card-body">
-                <h5 class="card-title">Micro-site Mock</h5>
-                <p class="card-text">A whimsical take on micro-sites and frames.</p>
-                <a href="https://apkibum.github.io/my1styaoiblog/" target="_blank" rel="noopener" class="btn btn-sm btn-outline-light mt-2">Open piece</a>
-              </div>
+        
+        <!-- Glitch Art Section -->
+        <div id="art-glitch" class="content">
+            <div class="container-box">
+                <header>
+                    <h2>☆ﾐ(o*･ω･)ﾉ Glitch Art Gallery</h2>
+                </header>
+                <div class="art-content">
+                    <p>Embrace the beautiful chaos of glitch art!</p>
+                    <div class="art-grid">
+                        <img src="images/kindtoo.png" alt="Glitch Art 1" />
+                        <img src="images/loyaltoo.png" alt="Glitch Art 2" />
+                    </div>
+                    <p><em>Digital corruption experiments, datamosh and pixel play</em></p>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="#" class="button">← Back to Menu</a>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
+        
+        <!-- Meme Art Section -->
+        <div id="art-meme" class="content">
+            <div class="container-box">
+                <header>
+                    <h2>(≧▽≦) Meme Art Collection</h2>
+                </header>
+                <div class="art-content">
+                    <p>Where internet culture meets artistic expression!</p>
+                    <div class="art-grid">
+                        <img src="images/DUI%20PUFFLE.png" alt="Meme Art" />
+                    </div>
+                    <p><em>Playful, ephemeral pieces with bold captions</em></p>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="#" class="button">← Back to Menu</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Logos Section -->
+        <div id="art-logos" class="content">
+            <div class="container-box">
+                <header>
+                    <h2>(｡･ω･)ﾉﾞ Logo Design Portfolio</h2>
+                </header>
+                <div class="art-content">
+                    <p>Check out my branding and logo design work!</p>
+                    <div class="art-grid">
+                        <img src="images/logo%20.png" alt="Logo Design" />
+                    </div>
+                    <p><em>Branding experiments with retro type and pixel aesthetics</em></p>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="#" class="button">← Back to Menu</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Art in Code Section -->
+        <div id="art-code" class="content">
+            <div class="container-box">
+                <header>
+                    <h2>ヽ(•‿•)ノ Art in Code</h2>
+                </header>
+                <div class="art-content">
+                    <p>Creative coding and generative art experiments!</p>
+                    <div class="art-grid">
+                        <img src="images/portrait.png" alt="Portrait Code Art" />
+                        <img src="images/diyphotoshop.jpg" alt="DIY Photoshop" />
+                    </div>
+                    <p><em>Exploring the intersection of code and creativity</em></p>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="#" class="button">← Back to Menu</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Final Piece Section -->
+        <div id="art-final" class="content">
+            <div class="container-box">
+                <header>
+                    <h2>☆*:.｡.o(≧▽≦)o.｡.:*☆ Final Piece</h2>
+                </header>
+                <div class="art-content">
+                    <p>My ultimate masterpiece!</p>
+                    <p>The culmination of all my artistic exploration and growth.</p>
+                    <div class="art-grid">
+                        <img src="images/dudestopit.jpg" alt="Final Piece" />
+                    </div>
+                    <a href="https://apkibum.github.io/LADEVOTEE/index.html" target="_blank" rel="noopener" class="button">(づ｡◕‿‿◕｡)づ View Live Project</a>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="#" class="button">← Back to Menu</a>
+                </div>
+            </div>
+        </div>
     </main>
-
-    <footer class="bg-dark text-white py-4">
-      <div class="container d-flex justify-content-between align-items-center">
-        <small>© <span id="year"></span> apkibum — built with Bootstrap</small>
-        <div>
-          <a href="#" class="text-white me-3">Twitter</a>
-          <a href="#" class="text-white">Instagram</a>
-        </div>
-      </div>
+    
+    <footer>
+        <p class="footer-text rainbow-text">★ Thanks for visiting my portfolio! ★</p>
+        <p style="font-size: 0.9rem; color: #666;">Made with ♡ and Comic Sans in <span id="year"></span></p>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
-  </body>
+</body>
 </html>
 
