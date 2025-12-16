@@ -1,0 +1,96 @@
+/* Colorful refresh + small glitch effects */
+:root{
+  --accent1: #fff1a8; /* pale warm yellow */
+  --accent2: #ffd54a; /* amber */
+  --accent3: #ffb84d; /* soft orange */
+  --accent4: #ff8a4d; /* coral accent */
+  --accent5: #fff6d1; /* very pale yellow */
+  --muted: #d6cfae;
+  --bg-900: #0b0b12;
+  --bg-800: #12121a;
+  --rainbow: linear-gradient(90deg,var(--accent5),var(--accent1),var(--accent2),var(--accent3),var(--accent4));
+}
+html,body{height:100%;}
+body{
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, 'VT323', monospace;
+  color:#e8e8f0;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(127,125,255,0.06), transparent), radial-gradient(1000px 500px at 90% 90%, rgba(255,119,255,0.05), transparent), linear-gradient(180deg,var(--bg-800) 0%, var(--bg-900) 100%);
+}
+
+/* Animated colorful hero */
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));
+}
+.hero::before{
+  content:''; position:absolute; inset:0; z-index:0; opacity:0.12;
+  background:var(--rainbow);
+  background-size: 400% 400%;
+  filter: blur(40px) saturate(1.2);
+  animation: gradientShift 10s linear infinite;
+}
+
+@keyframes gradientShift{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+.hero > .container{position:relative; z-index:1}
+
+.glitch-title{font-family: 'VT323', monospace; font-size:2.5rem; position:relative; display:inline-block; z-index:1}
+.glitch-title::before, .glitch-title::after{
+  content:attr(data-text);
+  position:absolute; left:0; top:0; width:100%;
+  clip-path:polygon(0 0,100% 0,100% 50%,0 50%);
+}
+.glitch-title::before{color:var(--accent2); transform:translate(2px,-2px); mix-blend-mode:screen; opacity:0.95}
+.glitch-title::after{color:var(--accent4); transform:translate(-2px,2px); mix-blend-mode:screen; opacity:0.85}
+.glitch-title{animation:glitch 2.5s infinite}
+@keyframes glitch{
+  0%{text-shadow:none}
+  20%{text-shadow:2px 0 var(--accent1)}
+  40%{text-shadow:-2px 0 var(--accent3)}
+  60%{text-shadow:2px -1px var(--accent2)}
+  100%{text-shadow:none}
+}
+
+.glitch-logo{font-weight:700; letter-spacing:0.06em; font-family: VT323, monospace; color:var(--accent2); position:relative}
+.glitch-logo::after{content:''; position:absolute; left:0; right:0; bottom:-3px; height:3px; background:var(--rainbow); opacity:0.95}
+
+.section-title{font-family:VT323, monospace; margin-bottom:0.25rem}
+.section-desc{color:var(--muted); margin-bottom:1rem}
+
+/* Cards with subtle colorful accents */
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06)); border:none; box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+.card img{height:220px; object-fit:cover; display:block}
+.meme-card img{height:260px}
+
+/* Rainbow framed images */
+.img-fluid{border-radius:6px; border:6px solid transparent; border-image: var(--rainbow) 1;}
+
+/* Gradient button accent */
+.btn-outline-light{position:relative; overflow:hidden; border:1px solid rgba(255,255,255,0.08);}
+.btn-outline-light::before{content:''; position:absolute; inset:0; background:var(--rainbow); opacity:0; transition:opacity .25s; filter:blur(6px) saturate(1.05); z-index:0}
+.btn-outline-light:hover::before{opacity:0.25}
+.btn-outline-light > *{position:relative; z-index:1}
+
+/* Navbar link hover uses accent */
+.navbar-dark .navbar-nav .nav-link{color:rgba(255,255,255,0.85)}
+.navbar-dark .navbar-nav .nav-link:hover{background:linear-gradient(90deg, rgba(255,255,255,0.03), transparent); color:var(--accent2)}
+
+footer a{opacity:0.95}
+
+/* small responsive tweaks */
+@media (max-width:576px){
+  .glitch-title{font-size:1.6rem}
+  .card img{height:160px}
+}
+
+/* small utility to tint inline links */
+a{color:var(--accent2); text-decoration:underline dotted}
+
+/* utility accent text */
+.text-accent{color:var(--accent2) !important}
+
